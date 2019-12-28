@@ -16,8 +16,8 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static Spinner mLocaleSpinner;
-    private static Button mSwitchBtn;
+    Spinner mLocaleSpinner;
+    Button mSwitchBtn;
     private static Locale localeRU = new Locale("ru");
     private static Locale localeEN = new Locale("en");
     private static Locale localeJP = new Locale("ja");
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mSwitchBtn = findViewById(R.id.switchLangBtn);
         mLocaleSpinner = findViewById(R.id.localeSpinner);
         initLocaleSpinner();
+        switchBtnAction();
     }
 
     private void initLocaleSpinner() {
@@ -61,17 +62,14 @@ public class MainActivity extends AppCompatActivity {
         switch (language) {
             case "Русский" :
                 config.setLocale(localeRU);
-                switchBtnAction();
                 break;
 
             case "English" :
                 config.setLocale(localeEN);
-                switchBtnAction();
                 break;
 
             case "日本語" :
                 config.setLocale(localeJP);
-                switchBtnAction();
 
             default:break;
         }
